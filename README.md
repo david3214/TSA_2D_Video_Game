@@ -3,8 +3,7 @@
 Hey guys here is a repository on github for us to collaborate on our project with.
 
 ## For Our Artist and Music Provider
-I would recommend understanding the basics of github, how to commit changes to the source.
-Understand how you can put your files directly into the project.
+Send the music and art to Daniel or David and we will put them onto this repository.
 
 ## For the Code Monkeys on Our team
 I would recommend a full overview of github.
