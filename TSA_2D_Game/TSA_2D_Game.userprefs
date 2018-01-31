@@ -1,10 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerMovement.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MainMenuScripts\LoadScene.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" Line="17" Column="21" />
+      <File FileName="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs" Line="50" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

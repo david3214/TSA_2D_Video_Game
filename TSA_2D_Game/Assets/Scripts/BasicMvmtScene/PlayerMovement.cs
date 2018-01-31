@@ -37,11 +37,16 @@ public class PlayerMovement : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Ground") {
 			grounded = true;
+		} else if (other.tag == "Wall") {
+
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Ground") {
 			grounded = false;
+		}
+		else if (other.tag == "Wall") {
+
 		}
 	}
 }
