@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\BasicMvmtScene\WallJump_Slide.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
  <Reference Include="UnityEngine.UI">
