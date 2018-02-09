@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MouseOverButtons : MonoBehaviour {
 	public Text text;
 	private int originalFontSize;
+	public float scaleSize = 1.2f;
 	private Color originalColor;
 	// Update is called once per frame
 	void Awake(){
@@ -15,8 +17,8 @@ public class MouseOverButtons : MonoBehaviour {
 	}
 
 	public void Grow(){
-		text.fontSize = 20;
-		text.color = Color.green;
+		text.fontSize = (int)(text.fontSize * scaleSize);
+		text.color = Color.gray;
 	}
 	public void Shrink(){
 		text.fontSize = originalFontSize;
