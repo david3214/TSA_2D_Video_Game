@@ -9,4 +9,7 @@ public class LoadScene : MonoBehaviour {
 	{
 		SceneManager.LoadScene(level);
 	}
+	public void ClickExit(){
+		Application.Quit ();
+	}
 }
