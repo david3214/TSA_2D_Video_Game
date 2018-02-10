@@ -50,16 +50,17 @@ public class PlayerMovement : MonoBehaviour {
 		if (other.tag == "Ground") {
 			grounded = true;
 		}
-		if (other.tag == "Wall") {
-			if (rb.position.x > other.GetComponent<Transform> ().position.x) {
-				canMoveLeft = false;
-			}
-			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
-				canMoveRight = false;
-			}
-		}
-		if (other.tag == "Button") {
+
+		if (other.tag == "GreenButton") {
 			other.GetComponent<OpenDoor> ().OpenGreenDoor ();
+		} 
+		else if (other.tag == "BlueButton")
+		{
+			other.GetComponent<OpenDoor> ().OpenBlueDoor ();
+		}
+		else if(other.tag == "RedButton")
+		{
+			other.GetComponent<OpenDoor> ().OpenRedDoor ();
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
@@ -72,6 +73,16 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
 				canMoveRight = true;
+			}
+		}
+	}
+	void OnTriggerStay2D(Collider2D other){
+		if (other.tag == "Wall") {
+			if (rb.position.x > other.GetComponent<Transform> ().position.x) {
+				canMoveLeft = false;
+			}
+			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
+				canMoveRight = false;
 			}
 		}
 	}
