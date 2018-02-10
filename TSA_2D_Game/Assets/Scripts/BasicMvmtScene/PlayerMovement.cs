@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float slideSpeed = -3.0f;
 
 	public bool grounded = false;
-	public bool canWallJump = true;
+	public bool canMoveLeft = true;
+	public bool canMoveRight = true;
 	public Transform groundCheck;
 	public float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
@@ -40,12 +41,25 @@ public class PlayerMovement : MonoBehaviour {
 				rb.velocity = new Vector2 (rb.velocity.x, y * jumpSpeed);
 			}
 		}
-		rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
+		if (x < 0 && canMoveLeft)
+			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
+		else if(x > 0 && canMoveRight)
+			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Ground") {
 			grounded = true;
-			canWallJump = true;
+		}
+		if (other.tag == "Wall") {
+			if (rb.position.x > other.GetComponent<Transform> ().position.x) {
+				canMoveLeft = false;
+			}
+			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
+				canMoveRight = false;
+			}
+		}
+		if (other.tag == "Button") {
+			other.GetComponent<OpenDoor> ().OpenGreenDoor ();
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
@@ -53,18 +67,12 @@ public class PlayerMovement : MonoBehaviour {
 			grounded = false;
 		}
 		else if (other.tag == "Wall") {
-
-		}
-	}
-	void OnTriggerStay2D(Collider2D other){
-		float y = Input.GetAxis ("Jump");
-		if (other.tag == "Wall" && !isJumping) {
-			rb.velocity = new Vector2 (rb.velocity.x, slideSpeed);
-		}
-		if (y > 0 && canWallJump) {
-			canWallJump = false;
-			rb.velocity = new Vector2 (-jumpForce , jumpSpeed - slideSpeed);
-
+			if (rb.position.x > other.GetComponent<Transform> ().position.x) {
+				canMoveLeft = true;
+			}
+			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
+				canMoveRight = true;
+			}
 		}
 	}
 }
