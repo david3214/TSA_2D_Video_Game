@@ -56,7 +56,8 @@
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
-     <Compile Include="Assets\Scripts\OpenDoor.cs" />
+     <Compile Include="Assets\Scripts\TriggerComponents\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\TriggerComponents\OpenDoor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

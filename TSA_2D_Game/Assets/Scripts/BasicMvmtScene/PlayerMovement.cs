@@ -51,17 +51,10 @@ public class PlayerMovement : MonoBehaviour {
 			grounded = true;
 		}
 
-		if (other.tag == "GreenButton") {
-			other.GetComponent<OpenDoor> ().OpenGreenDoor ();
+		if (other.tag == "Button") {
+			other.GetComponent<OpenDoor> ().OpenDoors();
 		} 
-		else if (other.tag == "BlueButton")
-		{
-			other.GetComponent<OpenDoor> ().OpenBlueDoor ();
-		}
-		else if(other.tag == "RedButton")
-		{
-			other.GetComponent<OpenDoor> ().OpenRedDoor ();
-		}
+
 	}
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Ground") {
@@ -84,6 +77,15 @@ public class PlayerMovement : MonoBehaviour {
 			else if (rb.position.x < other.GetComponent<Transform> ().position.x) {
 				canMoveRight = false;
 			}
+		}
+		if (other.tag == "Door") {
+			if (Input.GetAxis ("Vertical") > 0 && other.GetComponent<DoorScript>().isOpen) {
+				//Load a scene
+				Debug.Log("Worked");
+			}
+		}
+		if (other.tag == "Ground") {
+			grounded = true;
 		}
 	}
 }

@@ -9,6 +9,8 @@ TagManager:
   - GreenButton
   - BlueButton
   - RedButton
+  - Door
+  - Button
   layers:
   - Default
   - TransparentFX

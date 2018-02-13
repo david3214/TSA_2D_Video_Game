@@ -4,9 +4,8 @@
     <Files>
       <File FileName="Assets\Scripts\MainMenuScripts\LoadScene.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs" Line="77" Column="4" />
+      <File FileName="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs" Line="82" Column="34" />
       <File FileName="Assets\Scripts\EnemyScripts\EnemyMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\OpenDoor.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
