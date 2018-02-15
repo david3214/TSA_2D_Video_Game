@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887701361063348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5221615, y: -9.92, z: 0}
+  m_LocalPosition: {x: 0.11, y: 1.23, z: 0}
   m_LocalScale: {x: 7.9624224, y: 8.606592, z: 22.456268}
   m_Children:
   - {fileID: 4242138009617394}
@@ -125,7 +125,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.1123695
+  orthographic size: 11.067501
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -230,9 +230,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpSpeed: 12
+  jumpSpeed: 10
   jumpForce: 2
   slideSpeed: -3
+  rbVelocity: 0
+  isJumping: 0
   grounded: 0
   canMoveLeft: 1
   canMoveRight: 1
@@ -241,7 +243,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  isJumping: 0
+  canDoubleJump: 1
+  hasDoubleJump: 1
 --- !u!124 &124075161988569780
 Behaviour:
   m_ObjectHideFlags: 1

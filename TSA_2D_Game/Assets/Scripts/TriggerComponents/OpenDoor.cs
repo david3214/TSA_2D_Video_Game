@@ -18,6 +18,7 @@ public class OpenDoor : MonoBehaviour {
 		if (!isOpen) {
 			Door.GetComponent<DoorScript> ().OpenDoor ();
 			isOpen = true;
+			this.enabled = false;
 		}
 	}
 

@@ -51,13 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BasicMvmtScene\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\BasicMvmtScene\WallJump_Slide.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\DoorScript.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\OpenDoor.cs" />
+     <Compile Include="Assets\Scripts\TriggerComponents\OpenWindow.cs" />
+     <Compile Include="Assets\Scripts\TriggerComponents\Room1.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
