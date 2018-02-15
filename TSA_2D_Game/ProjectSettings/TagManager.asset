@@ -9,6 +9,11 @@ TagManager:
   - GreenButton
   - BlueButton
   - RedButton
+  - Door
+  - Button
+  - House1
+  - House2
+  - Window
   layers:
   - Default
   - TransparentFX
@@ -18,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Door
   - 
   - 
   - 
