@@ -479,6 +479,10 @@ Prefab:
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1043244273381136, guid: e47247b6a08374646ab01c7d4715b659, type: 2}
+      propertyPath: m_Name
+      value: Door 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e47247b6a08374646ab01c7d4715b659, type: 2}
   m_IsPrefabParent: 0
@@ -601,9 +605,14 @@ Prefab:
       objectReference: {fileID: 1485800638}
     - target: {fileID: 1525812479111078, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
       propertyPath: m_Name
-      value: Button
+      value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1525812479111078, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114272174155681270, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &961492779
@@ -911,7 +920,16 @@ Prefab:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1525812479111078, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
+      propertyPath: m_Name
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525812479111078, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114272174155681270, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2ad9b4a028ebb8546800c288a3ea0a20, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1478488222
@@ -1037,6 +1055,10 @@ Prefab:
     - target: {fileID: 1043244273381136, guid: e47247b6a08374646ab01c7d4715b659, type: 2}
       propertyPath: m_TagString
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043244273381136, guid: e47247b6a08374646ab01c7d4715b659, type: 2}
+      propertyPath: m_Name
+      value: Door 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e47247b6a08374646ab01c7d4715b659, type: 2}
