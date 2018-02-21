@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FallingRock.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
