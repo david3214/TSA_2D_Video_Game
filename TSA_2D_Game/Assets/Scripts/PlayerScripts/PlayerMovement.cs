@@ -84,8 +84,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (other.tag == "Key") {
 			//other.GetComponent<OpenDoor> ().OpenDoors();
-			int keyNumber = int.Parse (other.name);
-			Item key = new Item ("Door " + other.name + " Key", keyNumber);
+			int keyNumber = int.Parse (other.name.Substring(4,1));
+			Item key = new Item ("LockedDoor " + keyNumber + " Key", keyNumber);
 			if (playerInv.hasItem (key)) {
 				other.gameObject.SetActive (false);
 

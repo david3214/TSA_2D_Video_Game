@@ -13,11 +13,11 @@ public class DoorScript : MonoBehaviour {
 	void Awake () {
 		
 
-		if (name == "LockedDoor") {
+		if (name != "LowerDoor" && name != "UpperDoor") {
 			
 			isOpen = false;
-			string substring = name.Substring (5, 1);
-			thisDoorsNumber = int.Parse (substring);
+
+			thisDoorsNumber = int.Parse (name.Substring(11, 1));
 			thisDoorsKeyName = name + " Key";
 			thisDoorsKey = new Item (thisDoorsKeyName, thisDoorsNumber);
 
