@@ -16,6 +16,7 @@ TagManager:
   - Window
   - Key
   - Platform
+  - Enemy
   layers:
   - Default
   - TransparentFX

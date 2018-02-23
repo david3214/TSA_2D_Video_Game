@@ -48,9 +48,9 @@ public class DoorScript : MonoBehaviour {
 			other.gameObject.transform.position = connectedDoor.transform.position;
 		}
 		if (other.tag == "Player" && !isOpen) {
-			if(other.GetComponent<PlayerMovement> ().playerInv.hasItem (thisDoorsKey)){
+			if(other.GetComponent<InventoryNItems> ().playerInv.hasItem (thisDoorsKey)){
 				OpenDoor ();
-				other.GetComponent<PlayerMovement> ().playerInv.removeItem (thisDoorsKey);
+				other.GetComponent<InventoryNItems> ().playerInv.removeItem (thisDoorsKey);
 			}
 		}
 	}
@@ -59,9 +59,9 @@ public class DoorScript : MonoBehaviour {
 			other.gameObject.transform.position = connectedDoor.transform.position;
 		}
 		if (other.tag == "Player" && !isOpen) {
-			if(other.GetComponent<PlayerMovement> ().playerInv.hasItem (thisDoorsKey)){
+			if(other.GetComponent<InventoryNItems> ().playerInv.hasItem (thisDoorsKey)){
 				OpenDoor ();
-				other.GetComponent<PlayerMovement> ().playerInv.removeItem (thisDoorsKey);
+				other.GetComponent<InventoryNItems> ().playerInv.removeItem (thisDoorsKey);
 			}
 		}
 	}

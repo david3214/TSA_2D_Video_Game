@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 114732171153359820}
   - component: {fileID: 61350251951369036}
   - component: {fileID: 61905095064725082}
+  - component: {fileID: 114846449949726506}
+  - component: {fileID: 114380472688537658}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -69,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887701361063348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.99, y: -10.26, z: 0}
+  m_LocalPosition: {x: -15.57, y: 26.28, z: -1}
   m_LocalScale: {x: 7.9624224, y: 8.606592, z: 22.456268}
   m_Children:
   - {fileID: 4242138009617394}
@@ -189,6 +191,17 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510474851433808}
   m_Enabled: 1
+--- !u!114 &114380472688537658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887701361063348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f27cc196dde63c44bc608fee80a0c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114732171153359820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,13 +222,29 @@ MonoBehaviour:
   grounded: 0
   canMoveLeft: 1
   canMoveRight: 1
-  groundCheck: {fileID: 0}
   groundRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
   canDoubleJump: 1
   hasDoubleJump: 1
+  itemTracker: 
+  itemNumTracker: 0
+  sizeTracker: 0
+--- !u!114 &114846449949726506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887701361063348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7a8973246eb994c83b80bbd900a808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 0
+  invincibilityTime: 0
+  takingDmg: 0
 --- !u!124 &124075161988569780
 Behaviour:
   m_ObjectHideFlags: 1

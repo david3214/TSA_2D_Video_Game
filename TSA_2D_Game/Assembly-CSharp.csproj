@@ -52,9 +52,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\InteractionsWithPlayer.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\SettingsScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\HealthNAttack.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\InventoryNItems.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\DoorScript.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\Room1.cs" />
