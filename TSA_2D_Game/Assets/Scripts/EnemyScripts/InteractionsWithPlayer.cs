@@ -7,7 +7,7 @@ public class InteractionsWithPlayer : MonoBehaviour {
 	public int dmg;
 	// Use this for initialization
 	void Start () {
-		dmg = 25;
+		dmg = 1;
 	}
 	
 	// Update is called once per frame

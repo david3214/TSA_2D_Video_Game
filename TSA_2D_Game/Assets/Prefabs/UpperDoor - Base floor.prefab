@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf883749fb09f54c82df39bb2f302ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite1: {fileID: 21300000, guid: 2fc6a914761ac5745810d2e998151553, type: 3}
+  sprite2: {fileID: 21300000, guid: a6cf4cd72b6d0ea4f82968fa3a267e6d, type: 3}
   isOpen: 0
   thisDoorsNumber: 0
   thisDoorsKeyName: 

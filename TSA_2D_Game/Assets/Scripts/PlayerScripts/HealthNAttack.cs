@@ -8,7 +8,7 @@ public class HealthNAttack : MonoBehaviour {
 	public bool takingDmg;
 	// Use this for initialization
 	void Start () {
-		playerHealth = 100;
+		playerHealth = 3;
 		invincibilityTime = 1;
 		takingDmg = false;
 	}
@@ -26,11 +26,13 @@ public class HealthNAttack : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" && !takingDmg) {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
+			other.gameObject.SetActive (false);
 		}
 	}
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Enemy" && !takingDmg) {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
+			other.gameObject.SetActive (false);
 		}
 	}
 

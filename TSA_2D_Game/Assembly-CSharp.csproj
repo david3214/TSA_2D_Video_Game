@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\SettingsScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\HealthNAttack.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\Hearts.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\InventoryNItems.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\DoorScript.cs" />

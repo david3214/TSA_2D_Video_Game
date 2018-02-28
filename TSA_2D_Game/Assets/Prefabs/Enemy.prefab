@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 61896695525354038}
   - component: {fileID: 50514782997500920}
   - component: {fileID: 114406948597471056}
+  - component: {fileID: 61950320306890048}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1118150424921388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.81165, y: 117.035095, z: 0}
+  m_LocalPosition: {x: 44.5, y: 29.1, z: -1}
   m_LocalScale: {x: 22.092897, y: 21.97213, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,6 +90,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1510424, y: 0.15187222}
   m_EdgeRadius: 0
+--- !u!61 &61950320306890048
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1118150424921388}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0023787618, y: -0.0023189895}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15524283, y: 0.15507114}
+  m_EdgeRadius: 0
 --- !u!114 &114406948597471056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c1454293663c241a0655c31f1bba55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!114 &114417012225402798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +141,7 @@ MonoBehaviour:
   movementSpeed: 5
   rb: {fileID: 0}
   direction: 1
+  velocityx: 0
 --- !u!212 &212138495205711874
 SpriteRenderer:
   m_ObjectHideFlags: 1
