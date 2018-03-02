@@ -6,6 +6,9 @@ public class HealthNAttack : MonoBehaviour {
 	public int playerHealth;
 	public int invincibilityTime;
 	public bool takingDmg;
+
+	public GameObject beam;
+	public bool attacking;
 	// Use this for initialization
 	void Start () {
 		playerHealth = 3;
@@ -15,7 +18,10 @@ public class HealthNAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (!attacking && Input.GetKeyDown(KeyCode.J)) {
+			Attack ();
+		}
+
 	}
 
 	void dealDmg(int dmg){
@@ -24,7 +30,7 @@ public class HealthNAttack : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Enemy" && !takingDmg) {
+		if (other.tag == "Enemy" && !takingDmg && this.gameObject.tag == "Player") {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
 			other.gameObject.SetActive (false);
 		}
@@ -32,7 +38,7 @@ public class HealthNAttack : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Enemy" && !takingDmg) {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
-			other.gameObject.SetActive (false);
+			Destroy (other.gameObject);
 		}
 	}
 
@@ -42,5 +48,18 @@ public class HealthNAttack : MonoBehaviour {
 		yield return new WaitForSeconds (time);
 
 		takingDmg = false;
+	}
+	IEnumerator Attacking(int time){
+		attacking = true;
+
+		yield return new WaitForSeconds (time);
+
+		attacking = false;
+	}
+	void Attack(){
+		StartCoroutine (Attacking (3));
+		GameObject Weapon = Instantiate (beam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+		Weapon.transform.parent = this.gameObject.transform;
+		Weapon.transform.position = transform.position;
 	}
 }

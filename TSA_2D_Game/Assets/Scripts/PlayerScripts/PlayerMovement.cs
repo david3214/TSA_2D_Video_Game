@@ -7,17 +7,17 @@ public class PlayerMovement : MonoBehaviour {
 	public float moveSpeed = 7.0f;
 	public float jumpSpeed = 10f;
 	public float jumpForce = 2.0f;
-	public float slideSpeed = -3.0f;
 	public float rbVelocity = 0;
 	public bool isJumping = false;
 	public bool grounded = false;
 	public bool canMoveLeft = true;
 	public bool canMoveRight = true;
 	public float groundRadius = 0.2f;
-	public LayerMask whatIsGround;
 
 	public bool canDoubleJump = true;
 	public bool hasDoubleJump = true;
+
+	public bool facingLeft = false;
 
 
 
@@ -35,8 +35,7 @@ public class PlayerMovement : MonoBehaviour {
 		} else {
 			isJumping = false;
 		}
-
-		//grounded = Physics2D.OverlapArea (new Vector2 (	), new Vector2 (), whatIsGround);
+			
 		movePlayer ();
 	}
 
@@ -56,10 +55,19 @@ public class PlayerMovement : MonoBehaviour {
 
 			}
 		}
-		if (x < 0 && canMoveLeft)
+		if (x < 0 && canMoveLeft) {
+			if (!facingLeft) {
+				Flip ();
+			}
 			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
-		else if(x > 0 && canMoveRight)
+
+		} else if (x > 0 && canMoveRight) {
+			if (facingLeft) {
+				Flip ();
+			}
 			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
+
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -111,7 +119,17 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 	}
+	void Flip(){
+		if (facingLeft) {
+			GetComponent<SpriteRenderer> ().flipX = false;
+			facingLeft = false;
+		} else {
+			GetComponent<SpriteRenderer> ().flipX = true;
+			facingLeft = true;
+		}
+	}
 
 }
+
 
 

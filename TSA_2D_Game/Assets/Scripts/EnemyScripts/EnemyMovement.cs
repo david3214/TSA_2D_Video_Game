@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour {
 	public float movementSpeed = 5.0f;
 	public Rigidbody2D rb;
 	//public Transform trans;
-	public int direction = 1;
+	public int direction = -1;
 	public float velocityx;
 	// Use this for initialization
 	void Awake () {
@@ -31,6 +31,9 @@ public class EnemyMovement : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Wall") {
 			direction = direction * -1;
+		}
+		else if(other.tag == "Weapon"){
+			Destroy (this);
 		}
 	}
 }
