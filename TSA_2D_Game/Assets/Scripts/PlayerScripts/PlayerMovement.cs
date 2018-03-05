@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public bool facingLeft = false;
 
-
+    public bool attacking = false;
+	public float attackTime = 1.0f;
 
 	// Use this for initialization
 	void Awake () {
@@ -35,8 +36,16 @@ public class PlayerMovement : MonoBehaviour {
 		} else {
 			isJumping = false;
 		}
-			
-		movePlayer ();
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+			StartCoroutine(Attack(attackTime));
+        }
+
+        if (!attacking)
+        {
+            movePlayer();
+        }
 	}
 
 	void movePlayer()
@@ -128,6 +137,23 @@ public class PlayerMovement : MonoBehaviour {
 			facingLeft = true;
 		}
 	}
+
+    IEnumerator Attack(float time)
+    {
+        attacking = true;
+
+        this.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
+        yield return new WaitForSeconds(time);
+
+		this.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+        attacking = false;
+
+
+    }
 
 }
 

@@ -8,6 +8,7 @@ public class HealthNAttack : MonoBehaviour {
 	public bool takingDmg;
 
 	public GameObject beam;
+	public float attackTime = 1.0f;
 	public bool attacking;
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,12 @@ public class HealthNAttack : MonoBehaviour {
 		}
 	}
 
+	void Attack(){
+		StartCoroutine (Attacking (attackTime));
+		GameObject Weapon = Instantiate (beam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+		Weapon.transform.position = transform.position;
+	}
+
 	IEnumerator TakeDmg(int time){
 		takingDmg = true;
 
@@ -49,17 +56,12 @@ public class HealthNAttack : MonoBehaviour {
 
 		takingDmg = false;
 	}
-	IEnumerator Attacking(int time){
+	IEnumerator Attacking(float time){
 		attacking = true;
 
 		yield return new WaitForSeconds (time);
 
 		attacking = false;
 	}
-	void Attack(){
-		StartCoroutine (Attacking (3));
-		GameObject Weapon = Instantiate (beam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
-		Weapon.transform.parent = this.gameObject.transform;
-		Weapon.transform.position = transform.position;
-	}
+
 }
