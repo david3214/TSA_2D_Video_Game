@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthNAttack : MonoBehaviour {
-	public int playerHealth;
+	public float playerHealth;
 	public int invincibilityTime;
 	public bool takingDmg;
 
@@ -11,7 +11,7 @@ public class HealthNAttack : MonoBehaviour {
 	public bool attacking;
 	// Use this for initialization
 	void Start () {
-		playerHealth = 3;
+		playerHealth = 3f;
 		invincibilityTime = 1;
 		takingDmg = false;
 	}
@@ -24,7 +24,7 @@ public class HealthNAttack : MonoBehaviour {
 
 	}
 
-	void dealDmg(int dmg){
+	void dealDmg(float dmg){
 		StartCoroutine (TakeDmg (invincibilityTime));
 		playerHealth -= dmg;
 	}

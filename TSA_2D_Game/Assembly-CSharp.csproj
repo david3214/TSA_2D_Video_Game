@@ -133,6 +133,30 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="IronPython">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/IronPython.dll</HintPath>
+ </Reference>
+ <Reference Include="IronPython.Modules">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/IronPython.Modules.dll</HintPath>
+ </Reference>
+ <Reference Include="IronPython.SQLite">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/IronPython.SQLite.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Dynamic">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/Microsoft.Dynamic.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Scripting.AspNet">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/Microsoft.Scripting.AspNet.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Scripting.Core">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/Microsoft.Scripting.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Scripting">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/Microsoft.Scripting.dll</HintPath>
+ </Reference>
+ <Reference Include="Microsoft.Scripting.Metadata">
+ <HintPath>C:/Users/David/Documents/GitHub/TSA_2D_Video_Game/TSA_2D_Game/Assets/Editor/Plugins/resources/Microsoft.Scripting.Metadata.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/David/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>

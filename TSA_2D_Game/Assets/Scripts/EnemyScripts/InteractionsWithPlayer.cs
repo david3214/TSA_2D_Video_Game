@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InteractionsWithPlayer : MonoBehaviour {
 
-	public int dmg;
+	public float dmg;
 	// Use this for initialization
 	void Start () {
-		dmg = 1;
+		dmg = .5f;
 	}
 	
 	// Update is called once per frame
