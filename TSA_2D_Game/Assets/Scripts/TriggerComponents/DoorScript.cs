@@ -16,7 +16,7 @@ public class DoorScript : MonoBehaviour {
 	void Awake () {
 
 
-		if (name != "LowerDoor" && name != "UpperDoor") {
+		if (name != "LowerDoor" && name != "UpperDoor" && name != "BossDoor") {
 			
 			isOpen = false;
 			GetComponent<SpriteRenderer> ().sprite = sprite2;

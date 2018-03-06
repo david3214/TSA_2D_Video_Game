@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/StartupMenu.unity
     guid: 7584826c035477047a31ed83ba2c2075
   - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: ab670b046061c064caf3566b9ebce80d
+  - enabled: 1
+    path: Assets/Scenes/Prologe.unity
+    guid: a3f3ba4d976702f41bf186350738c3d4
+  - enabled: 1
     path: Assets/Scenes/ActaullGame.unity
     guid: 01f43fc326be56e4dac9354b25ebc004
   - enabled: 0
@@ -17,9 +23,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/SettingsMenu.unity
-    guid: ab670b046061c064caf3566b9ebce80d
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000

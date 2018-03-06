@@ -7,9 +7,12 @@ public class HealthNAttack : MonoBehaviour {
 	public int invincibilityTime;
 	public bool takingDmg;
 
-	public GameObject beam;
+	public GameObject LeftBeam;
+	public GameObject RightBeam;//cause lazy
+
 	public float attackTime = 1.0f;
-	public bool attacking;
+	public bool attacking = false;
+	public bool attackOnCD = false;
 	// Use this for initialization
 	void Start () {
 		playerHealth = 3f;
@@ -19,7 +22,7 @@ public class HealthNAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!attacking && Input.GetKeyDown(KeyCode.J)) {
+		if (!attacking && Input.GetKeyDown(KeyCode.J) && !attackOnCD) {
 			Attack ();
 		}
 
@@ -44,9 +47,18 @@ public class HealthNAttack : MonoBehaviour {
 	}
 
 	void Attack(){
-		StartCoroutine (Attacking (attackTime));
-		GameObject Weapon = Instantiate (beam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
-		Weapon.transform.position = transform.position;
+
+		if (GetComponent<PlayerMovement> ().facingLeft) {
+			StartCoroutine (Attacking (attackTime));
+			GameObject Weapon = Instantiate (LeftBeam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+			Weapon.transform.position = transform.position;
+			Weapon.GetComponentInChildren<SpriteRenderer> ().flipX = true;
+		} else {
+			StartCoroutine (Attacking (attackTime));
+			GameObject Weapon = Instantiate (RightBeam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
+			Weapon.transform.position = transform.position;
+		}
+
 	}
 
 	IEnumerator TakeDmg(int time){
@@ -58,10 +70,14 @@ public class HealthNAttack : MonoBehaviour {
 	}
 	IEnumerator Attacking(float time){
 		attacking = true;
-
+		attackOnCD = true;
 		yield return new WaitForSeconds (time);
 
 		attacking = false;
+
+		yield return new WaitForSeconds (1f);
+
+		attackOnCD = false;
 	}
 
 }

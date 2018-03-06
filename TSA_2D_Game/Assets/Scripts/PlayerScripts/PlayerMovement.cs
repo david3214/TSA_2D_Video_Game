@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 	public bool facingLeft = false;
 
     public bool attacking = false;
+	public bool attackOnCD = false;
 	public float attackTime = 1.0f;
 
 	// Use this for initialization
@@ -37,9 +38,9 @@ public class PlayerMovement : MonoBehaviour {
 			isJumping = false;
 		}
 
-        if (Input.GetKeyDown(KeyCode.J))
+		if (Input.GetKeyDown(KeyCode.J) && !attacking && !attackOnCD)
         {
-			StartCoroutine(Attack(attackTime));
+				StartCoroutine(Attack(attackTime));
         }
 
         if (!attacking)
@@ -141,6 +142,8 @@ public class PlayerMovement : MonoBehaviour {
     IEnumerator Attack(float time)
     {
         attacking = true;
+		attackOnCD = true;
+		Vector2 temp = this.GetComponent<Rigidbody2D> ().velocity;
 
         this.GetComponent<Rigidbody2D>().gravityScale = 0;
 
@@ -148,12 +151,19 @@ public class PlayerMovement : MonoBehaviour {
 
         yield return new WaitForSeconds(time);
 
-		this.GetComponent<Rigidbody2D>().gravityScale = 1;
 
         attacking = false;
 
+		this.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+		this.GetComponent<Rigidbody2D> ().velocity = temp;
+
+		yield return new WaitForSeconds (1f);
+
+		attackOnCD = false;
 
     }
+		
 
 }
 

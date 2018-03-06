@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour {
 			direction = direction * -1;
 		}
 		else if(other.tag == "Weapon"){
-			Destroy (this);
+			Destroy (this.gameObject);
 		}
 	}
 }
