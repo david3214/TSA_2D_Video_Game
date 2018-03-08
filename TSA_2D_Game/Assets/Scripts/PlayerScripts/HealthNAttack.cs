@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthNAttack : MonoBehaviour {
-	public float playerHealth;
+	public static float playerHealth;
 	public int invincibilityTime;
 	public bool takingDmg;
 
 	public GameObject LeftBeam;
 	public GameObject RightBeam;//cause lazy
 
-	public float attackTime = 1.0f;
-	public bool attacking = false;
-	public bool attackOnCD = false;
+	public float attackTime = .2f;
+	public static bool attacking = false;
+	public static bool attackOnCD = false;
+
+	public GameObject LoseCanvas;
 	// Use this for initialization
 	void Start () {
 		playerHealth = 3f;
@@ -21,8 +23,8 @@ public class HealthNAttack : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (!attacking && Input.GetKeyDown(KeyCode.J) && !attackOnCD) {
+	void FixedUpdate () {
+		if (!attacking && Input.GetKeyDown(KeyCode.J) && !attackOnCD && !PauseMenu.isPaused) {
 			Attack ();
 		}
 
@@ -31,6 +33,9 @@ public class HealthNAttack : MonoBehaviour {
 	void dealDmg(float dmg){
 		StartCoroutine (TakeDmg (invincibilityTime));
 		playerHealth -= dmg;
+		if (playerHealth <= 0) {
+			GetComponentInParent<LoseOrWin> ().LoseGame (LoseCanvas);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -71,13 +76,27 @@ public class HealthNAttack : MonoBehaviour {
 	IEnumerator Attacking(float time){
 		attacking = true;
 		attackOnCD = true;
+
+		Vector2 temp = this.GetComponent<Rigidbody2D> ().velocity;
+
+		this.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+		this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
 		yield return new WaitForSeconds (time);
+
+
+		this.GetComponent<Rigidbody2D>().gravityScale = 1;
+
+		this.GetComponent<Rigidbody2D> ().velocity = temp;
+
 
 		attacking = false;
 
 		yield return new WaitForSeconds (1f);
 
 		attackOnCD = false;
+
 	}
 
 }

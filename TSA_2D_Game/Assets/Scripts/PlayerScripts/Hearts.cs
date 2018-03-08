@@ -20,13 +20,13 @@ public class Hearts : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GetComponentInParent<HealthNAttack> ().playerHealth < heartNum) {
-			if (!halfFull && GetComponentInParent<HealthNAttack> ().playerHealth == halfHeartNum) {
+		if (HealthNAttack.playerHealth < heartNum) {
+			if (!halfFull && HealthNAttack.playerHealth == halfHeartNum) {
 				halfFull = true;
 
 				GetComponent<SpriteRenderer> ().sprite = HalfHeart;
 			}
-			else if(GetComponentInParent<HealthNAttack> ().playerHealth < halfHeartNum && !empty){
+			else if(HealthNAttack.playerHealth < halfHeartNum && !empty){
 				Destroy (this.gameObject);
 			}
 		}

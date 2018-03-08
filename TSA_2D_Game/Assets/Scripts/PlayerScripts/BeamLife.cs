@@ -7,7 +7,7 @@ public class BeamLife : MonoBehaviour {
 
 	void Awake(){
 		
-		Destroy (this.gameObject, 1f);
+		Destroy (this.gameObject, .2f);
 
 	}
 }

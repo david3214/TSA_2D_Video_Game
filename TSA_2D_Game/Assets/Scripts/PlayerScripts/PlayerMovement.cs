@@ -19,10 +19,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	public bool facingLeft = false;
 
-    public bool attacking = false;
-	public bool attackOnCD = false;
-	public float attackTime = 1.0f;
-
 	// Use this for initialization
 	void Awake () {
 
@@ -38,46 +34,41 @@ public class PlayerMovement : MonoBehaviour {
 			isJumping = false;
 		}
 
-		if (Input.GetKeyDown(KeyCode.J) && !attacking && !attackOnCD)
-        {
-				StartCoroutine(Attack(attackTime));
-        }
-
-        if (!attacking)
+		if (!HealthNAttack.attacking)
         {
             movePlayer();
-        }
+        }	
 	}
 
 	void movePlayer()
 	{
-		float x = Input.GetAxis ("Horizontal");
-		float y = Input.GetAxis ("Jump");
-		if (grounded) {
-			if (y > 0) {
-				rb.velocity = new Vector2 (rb.velocity.x, y * jumpSpeed);
+			float x = Input.GetAxis ("Horizontal");
+			float y = Input.GetAxis ("Jump");
+			if (grounded) {
+				if (y > 0) {
+					rb.velocity = new Vector2 (rb.velocity.x, y * jumpSpeed);
 		
+				}
+			} else if (canDoubleJump && !isJumping && hasDoubleJump) {
+				if (y > 0) {
+					rb.velocity = new Vector2 (rb.velocity.x, y * jumpSpeed);
+					canDoubleJump = false;
+
+				}
 			}
-		} else if (canDoubleJump && !isJumping && hasDoubleJump) {
-			if (y > 0) {
-				rb.velocity = new Vector2 (rb.velocity.x, y * jumpSpeed);
-				canDoubleJump = false;
+			if (x < 0 && canMoveLeft) {
+				if (!facingLeft) {
+					Flip ();
+				}
+				rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
+
+			} else if (x > 0 && canMoveRight) {
+				if (facingLeft) {
+					Flip ();
+				}
+				rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
 
 			}
-		}
-		if (x < 0 && canMoveLeft) {
-			if (!facingLeft) {
-				Flip ();
-			}
-			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
-
-		} else if (x > 0 && canMoveRight) {
-			if (facingLeft) {
-				Flip ();
-			}
-			rb.velocity = new Vector2 (x * moveSpeed, rb.velocity.y);
-
-		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -138,31 +129,6 @@ public class PlayerMovement : MonoBehaviour {
 			facingLeft = true;
 		}
 	}
-
-    IEnumerator Attack(float time)
-    {
-        attacking = true;
-		attackOnCD = true;
-		Vector2 temp = this.GetComponent<Rigidbody2D> ().velocity;
-
-        this.GetComponent<Rigidbody2D>().gravityScale = 0;
-
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-
-        yield return new WaitForSeconds(time);
-
-
-        attacking = false;
-
-		this.GetComponent<Rigidbody2D>().gravityScale = 1;
-
-		this.GetComponent<Rigidbody2D> ().velocity = temp;
-
-		yield return new WaitForSeconds (1f);
-
-		attackOnCD = false;
-
-    }
 		
 
 }

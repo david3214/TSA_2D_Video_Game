@@ -54,7 +54,9 @@
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\InteractionsWithPlayer.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
+     <Compile Include="Assets\Scripts\MainMenuScripts\Lose.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />
+     <Compile Include="Assets\Scripts\MainMenuScripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\ProlougeStuff.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\SettingsScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\StartGame.cs" />
@@ -64,6 +66,7 @@
      <Compile Include="Assets\Scripts\PlayerScripts\InventoryNItems.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\TriggerComponents\LoseOrWin.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\Room1.cs" />
      <Compile Include="Assets\Scripts\TriggerComponents\ValuesForDisablePlat.cs" />
  <Reference Include="UnityEngine.UI">
