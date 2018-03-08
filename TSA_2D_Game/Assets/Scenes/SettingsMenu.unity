@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 118702803}
   - component: {fileID: 118702807}
   - component: {fileID: 118702808}
+  - component: {fileID: 118702809}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -302,6 +303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1de265885c9aef4fa71a2be8c929d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &118702809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 118702802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc75108607f70b441870e3949a313c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VolumeSlider: {fileID: 1768181192}
 --- !u!1 &348793665
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +905,7 @@ GameObject:
   - component: {fileID: 1768181191}
   - component: {fileID: 1768181192}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: VolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
