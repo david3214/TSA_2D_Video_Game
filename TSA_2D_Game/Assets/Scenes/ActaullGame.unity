@@ -3067,8 +3067,6 @@ GameObject:
   - component: {fileID: 973086700}
   - component: {fileID: 973086701}
   - component: {fileID: 973086704}
-  - component: {fileID: 973086703}
-  - component: {fileID: 973086702}
   - component: {fileID: 973086705}
   m_Layer: 0
   m_Name: BossSprite
@@ -3134,43 +3132,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!50 &973086702
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 973086699}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!95 &973086703
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 973086699}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 51b64ae78c8d7d34cbc1f11f1ee1aaae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!61 &973086704
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3208,8 +3169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanAttack: 0
-  startIdle: 0
+  idle: 0
   attackNumber: 0
+  idleTime: 0.05
 --- !u!4 &980409772 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4394988469468578, guid: 74dc0f8d028ad3344ad042371a811a85,
@@ -7140,6 +7102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802be8dde41b9a842bc808c95a70f4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AS: {fileID: 0}
 --- !u!1 &1847599197
 GameObject:
   m_ObjectHideFlags: 0
