@@ -3071,7 +3071,7 @@ GameObject:
   - component: {fileID: 973086702}
   - component: {fileID: 973086705}
   m_Layer: 0
-  m_Name: BoosSprite
+  m_Name: BossSprite
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3208,6 +3208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanAttack: 0
+  startIdle: 0
   attackNumber: 0
 --- !u!4 &980409772 stripped
 Transform:
@@ -4571,7 +4572,7 @@ GameObject:
   - component: {fileID: 1261130961}
   - component: {fileID: 1261130960}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7027,6 +7028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835875578}
   - component: {fileID: 1835875579}
+  - component: {fileID: 1835875580}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -7127,6 +7129,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1835875580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1835875577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 802be8dde41b9a842bc808c95a70f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1847599197
 GameObject:
   m_ObjectHideFlags: 0
