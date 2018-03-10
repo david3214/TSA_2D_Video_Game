@@ -19,10 +19,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	public bool facingLeft = false;
 
+	public GameObject Door;
+
 	// Use this for initialization
 	void Awake () {
 
 		rb = GetComponent<Rigidbody2D> ();
+		Door = null;
 	}
 
 	// Update is called once per frame
@@ -32,6 +35,12 @@ public class PlayerMovement : MonoBehaviour {
 			isJumping = true;
 		} else {
 			isJumping = false;
+		}
+
+		if (Door != null && Input.GetKeyDown(KeyCode.W)) {
+			if (Door.GetComponent<DoorScript> ().isOpen) {
+				transform.position = Door.GetComponent<DoorScript>().connectedDoor.transform.position;
+			}
 		}
 
 		if (!HealthNAttack.attacking)
@@ -82,6 +91,9 @@ public class PlayerMovement : MonoBehaviour {
 				other.gameObject.GetComponent<ValuesForDisablePlat>().parent.GetComponent<BoxCollider2D>().enabled = true;
 			}
 		}
+		if (other.tag == "Door") {
+			Door = other.gameObject;
+		}
 
 
 			
@@ -101,6 +113,9 @@ public class PlayerMovement : MonoBehaviour {
 				canMoveRight = true;
 			}
 		}
+		if (other.tag == "Door") {
+			Door = null;
+		}
 
 			
 	}
@@ -118,6 +133,9 @@ public class PlayerMovement : MonoBehaviour {
 			grounded = true;
 			canDoubleJump = true;
 
+		}
+		if (other.tag == "Door") {
+			Door = other.gameObject;
 		}
 	}
 	void Flip(){

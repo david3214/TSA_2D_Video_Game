@@ -12,6 +12,6 @@ public class VolumeScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		AS.volume = 1;
+		AS.volume = PlayerPrefs.GetFloat ("Volume");
 	}
 }

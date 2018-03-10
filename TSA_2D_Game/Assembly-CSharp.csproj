@@ -51,8 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\EnemyScripts\BossHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\BossMvmt.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CrystalHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\InteractionsWithPlayer.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\Test.cs" />
@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\MainMenuScripts\ProlougeStuff.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\SettingsScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\StartGame.cs" />
+     <Compile Include="Assets\Scripts\MainMenuScripts\VolumePercent.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\BeamLife.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\HealthNAttack.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\Hearts.cs" />

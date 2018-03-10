@@ -7,6 +7,7 @@ public class BossMvmt : MonoBehaviour {
 	public bool idle = false;
 	public int attackNumber;
 	public float idleTime = .05f;
+
 	public Vector3 StartingPos;
 	public Vector3 Atk1Pos1 = new Vector3(16, 0, -1);
 	public Vector3 Atk1Pos2 = new Vector3(-16, 0, -1);
@@ -14,9 +15,13 @@ public class BossMvmt : MonoBehaviour {
 	public Vector3 Atk3Pos1 = new Vector3(16, -11, -1);
 	public Vector3 Atk3Pos2 = new Vector3(-16, -11, -1);
 	public SpriteRenderer sp;
-	// Use this for initialization
+	public BoxCollider2D BC;
+
+	public float dmg = .5f;
+
 	void Start () {
 		sp = GetComponent<SpriteRenderer> ();
+		BC = GetComponent<BoxCollider2D> ();
 		StartingPos = transform.localPosition;
 		attackNumber = 1;
 		StartCoroutine (Idle ());
@@ -38,6 +43,7 @@ public class BossMvmt : MonoBehaviour {
 	IEnumerator Attack1(){
 		CanAttack = false;
 		sp.enabled = false;
+		BC.enabled = false;
 		Debug.Log ("Attack 1");
 		yield return new WaitForSeconds(.5f);
 		if (Random.Range (1, 3) == 1) {
@@ -46,6 +52,7 @@ public class BossMvmt : MonoBehaviour {
 			transform.localPosition = Atk1Pos2;
 		}
 
+		BC.enabled = true;
 		sp.enabled = true;
 
 		yield return new WaitForSeconds (3.0f);
@@ -59,11 +66,13 @@ public class BossMvmt : MonoBehaviour {
 		
 		CanAttack = false;
 		sp.enabled = false;
+		BC.enabled = false;
 		Debug.Log ("Attack 2");
 		yield return new WaitForSeconds(.5f);
 
 		transform.localPosition = Atk2Pos;
 
+		BC.enabled = true;
 		sp.enabled = true;
 
 		StartCoroutine (Idle());
@@ -75,11 +84,13 @@ public class BossMvmt : MonoBehaviour {
 	IEnumerator Attack3(){
 		CanAttack = false;
 		sp.enabled = false;
+		BC.enabled = false;
 		Debug.Log ("Attack 3");
 		yield return new WaitForSeconds(.5f);
 		if (Random.Range (1, 3) == 1) {
 			transform.localPosition = Atk3Pos1;// (16, 0, -1)
 			sp.enabled = true;
+			BC.enabled = true;
 			float i = 16;
 			yield return new WaitForSeconds (1.0f);
 			while (i > -16) {// (16, 0, -1) to (-16, 0, -1)
@@ -90,6 +101,7 @@ public class BossMvmt : MonoBehaviour {
 		} else {
 			transform.localPosition = Atk3Pos2;
 			sp.enabled = true;
+			BC.enabled = true;
 			float i = -16;
 			yield return new WaitForSeconds (1.0f);
 			while (i < 16) {
@@ -99,7 +111,7 @@ public class BossMvmt : MonoBehaviour {
 			}
 		}
 
-		yield return new WaitForSeconds (3.0f);
+		yield return new WaitForSeconds (1.0f);
 
 		attackNumber = 1;
 		CanAttack = true;

@@ -31,23 +31,31 @@ public class HealthNAttack : MonoBehaviour {
 	}
 
 	void dealDmg(float dmg){
-		StartCoroutine (TakeDmg (invincibilityTime));
-		playerHealth -= dmg;
-		if (playerHealth <= 0) {
-			GetComponentInParent<LoseOrWin> ().LoseGame (LoseCanvas);
+		if (!takingDmg) {
+			StartCoroutine (TakeDmg (invincibilityTime));
+			playerHealth -= dmg;
+			if (playerHealth <= 0) {
+				GetComponentInParent<LoseOrWin> ().LoseGame (LoseCanvas);
+			}
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Enemy" && !takingDmg && this.gameObject.tag == "Player") {
+		if (other.tag == "Enemy" && this.gameObject.tag == "Player") {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
 			other.gameObject.SetActive (false);
 		}
+		if (other.tag == "Boss") {
+			dealDmg(other.GetComponent<BossMvmt> ().dmg);
+		}
 	}
 	void OnTriggerStay2D(Collider2D other){
-		if (other.tag == "Enemy" && !takingDmg) {
+		if (other.tag == "Enemy") {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
 			Destroy (other.gameObject);
+		}
+		if (other.tag == "Boss") {
+			dealDmg(other.GetComponent<BossMvmt> ().dmg);
 		}
 	}
 

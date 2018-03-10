@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHealth : MonoBehaviour {
+public class CrystalHealth : MonoBehaviour {
 
 	public static int bossHealth;
 	// Use this for initialization

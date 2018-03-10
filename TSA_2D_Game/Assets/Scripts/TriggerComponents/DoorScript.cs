@@ -12,9 +12,10 @@ public class DoorScript : MonoBehaviour {
 	public int thisDoorsNumber;
 	public string thisDoorsKeyName;
 	public GameObject connectedDoor;
+
+	public GameObject LockedMessage;
 	// Use this for initialization
 	void Awake () {
-
 
 		if (name != "LowerDoor" && name != "UpperDoor" && name != "BossDoor") {
 			
@@ -35,9 +36,6 @@ public class DoorScript : MonoBehaviour {
 		}
 
 	}
-	void Update(){
-		
-	}
 	
 	// Update is called once per frame
 	public void OpenDoor(){
@@ -50,8 +48,8 @@ public class DoorScript : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D other){
-		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && isOpen) {
-			other.gameObject.transform.position = connectedDoor.transform.position;
+		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && !isOpen) {
+			StartCoroutine (Locked());
 		}
 		if (other.tag == "Player" && !isOpen) {
 			if(other.GetComponent<InventoryNItems> ().playerInv.hasItem (thisDoorsKey)){
@@ -61,14 +59,21 @@ public class DoorScript : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && isOpen) {
-			other.gameObject.transform.position = connectedDoor.transform.position;
+		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && !isOpen) {
+			StartCoroutine (Locked());
 		}
 		if (other.tag == "Player" && !isOpen) {
-			if(other.GetComponent<InventoryNItems> ().playerInv.hasItem (thisDoorsKey)){
+			if (other.GetComponent<InventoryNItems> ().playerInv.hasItem (thisDoorsKey)) {
 				OpenDoor ();
 				other.GetComponent<InventoryNItems> ().playerInv.removeItem (thisDoorsKey);
 			}
 		}
+	}
+	IEnumerator Locked(){
+		LockedMessage.SetActive (true);
+
+		yield return new WaitForSeconds (3f);
+
+		LockedMessage.SetActive (false);
 	}
 }
