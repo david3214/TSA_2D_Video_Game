@@ -3121,7 +3121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0.91724133, b: 1, a: 1}
   m_FlipX: 0
@@ -3168,10 +3168,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c459bf630b78cac428de2765e6764821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanAttack: 0
+  CanAttack: 1
   idle: 0
   attackNumber: 0
   idleTime: 0.05
+  StartingPos: {x: 0, y: 0, z: 0}
+  Atk1Pos1: {x: 16, y: 0, z: -1}
+  Atk1Pos2: {x: -16, y: 0, z: -1}
+  Atk2Pos: {x: 0, y: 5, z: -1}
+  Atk3Pos1: {x: 16, y: -11, z: -1}
+  Atk3Pos2: {x: -16, y: -11, z: -1}
+  sp: {fileID: 0}
 --- !u!4 &980409772 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4394988469468578, guid: 74dc0f8d028ad3344ad042371a811a85,
@@ -4597,7 +4604,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0.13103485, b: 1, a: 1}
   m_FlipX: 0

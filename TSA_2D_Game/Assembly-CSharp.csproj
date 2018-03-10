@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\EnemyScripts\BossMvmt.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\InteractionsWithPlayer.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\Test.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\LoadScene.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\Lose.cs" />
      <Compile Include="Assets\Scripts\MainMenuScripts\MouseOverButtons.cs" />

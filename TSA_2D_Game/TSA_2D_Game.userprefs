@@ -11,7 +11,7 @@
       <File FileName="Assets\Scripts\PlayerScripts\Hearts.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TriggerComponents\LoseOrWin.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SettingsScripts\UpdateSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyScripts\BossMvmt.cs" Line="24" Column="3" />
+      <File FileName="Assets\Scripts\EnemyScripts\BossMvmt.cs" Line="10" Column="29" />
       <File FileName="Assets\Scripts\EnemyScripts\BossHealth.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\PlayerScripts\VolumeScript.cs" Line="1" Column="1" />
     </Files>
