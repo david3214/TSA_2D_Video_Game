@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hearts : MonoBehaviour {
 	public int heartNum;
@@ -10,6 +11,8 @@ public class Hearts : MonoBehaviour {
 
 	public Sprite FullHeart;
 	public Sprite HalfHeart;
+
+	public Image thisImage;
 	// Use this for initialization
 	void Start () {
 		heartNum = int.Parse (name);
@@ -24,7 +27,7 @@ public class Hearts : MonoBehaviour {
 			if (!halfFull && HealthNAttack.playerHealth == halfHeartNum) {
 				halfFull = true;
 
-				GetComponent<SpriteRenderer> ().sprite = HalfHeart;
+				thisImage.sprite = HalfHeart;
 			}
 			else if(HealthNAttack.playerHealth < halfHeartNum && !empty){
 				Destroy (this.gameObject);

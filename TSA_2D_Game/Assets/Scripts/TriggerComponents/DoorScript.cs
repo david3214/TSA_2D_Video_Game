@@ -14,6 +14,9 @@ public class DoorScript : MonoBehaviour {
 	public GameObject connectedDoor;
 
 	public GameObject LockedMessage;
+
+	public Camera playerCam = null;
+	public Camera BossCam = null;
 	// Use this for initialization
 	void Awake () {
 
@@ -59,7 +62,7 @@ public class DoorScript : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && !isOpen) {
+		if (other.tag == "Player" && Input.GetKeyDown(KeyCode.W) && !isOpen && name != "BossDoor") {
 			StartCoroutine (Locked());
 		}
 		if (other.tag == "Player" && !isOpen) {
@@ -75,5 +78,20 @@ public class DoorScript : MonoBehaviour {
 		yield return new WaitForSeconds (3f);
 
 		LockedMessage.SetActive (false);
+	}
+
+	public void BossDoorStuff(){
+		isOpen = false;
+
+		thisDoorsNumber = 2;
+		thisDoorsKeyName = name + " Key";
+		thisDoorsKey = new Item (thisDoorsKeyName, thisDoorsNumber);
+
+		GetComponent<SpriteRenderer> ().sprite = sprite2;
+		GetComponent<BossArenaStuff> ().playerEnter ();
+
+
+		playerCam.enabled = false;
+		BossCam.enabled = true;
 	}
 }

@@ -8,12 +8,13 @@ public class BossMvmt : MonoBehaviour {
 	public int attackNumber;
 	public float idleTime = .05f;
 
-	public Vector3 StartingPos;
-	public Vector3 Atk1Pos1 = new Vector3(16, 0, -1);
-	public Vector3 Atk1Pos2 = new Vector3(-16, 0, -1);
-	public Vector3 Atk2Pos = new Vector3 (0, 5, -1);
-	public Vector3 Atk3Pos1 = new Vector3(16, -11, -1);
-	public Vector3 Atk3Pos2 = new Vector3(-16, -11, -1);
+	public Vector3 StartingPos = new Vector3(0, 10, -1);
+	public Vector3 Atk1Pos1 = new Vector3(22, 2, -1);
+	public Vector3 Atk1Pos2 = new Vector3(-23, 2, -1);
+	public Vector3 Atk2Pos = new Vector3 (0, 10, -1);
+	public Vector3 Atk3Pos1 = new Vector3(22, -8, -1);
+	public Vector3 Atk3Pos2 = new Vector3(-23, -8, -1);
+	public float atk3Time = .009f;
 	public SpriteRenderer sp;
 	public BoxCollider2D BC;
 
@@ -22,7 +23,6 @@ public class BossMvmt : MonoBehaviour {
 	void Start () {
 		sp = GetComponent<SpriteRenderer> ();
 		BC = GetComponent<BoxCollider2D> ();
-		StartingPos = transform.localPosition;
 		attackNumber = 1;
 		StartCoroutine (Idle ());
 	}
@@ -91,23 +91,23 @@ public class BossMvmt : MonoBehaviour {
 			transform.localPosition = Atk3Pos1;// (16, 0, -1)
 			sp.enabled = true;
 			BC.enabled = true;
-			float i = 16;
+			float i = 22;
 			yield return new WaitForSeconds (1.0f);
-			while (i > -16) {// (16, 0, -1) to (-16, 0, -1)
-				transform.position = transform.position - new Vector3 (.1f, 0, 0);
-				yield return new WaitForSeconds (.01f);
-				i -= .1f;
+			while (i > -23) {// (16, 0, -1) to (-23, 0, -1)
+				transform.position = transform.position - new Vector3 (.5f, 0, 0);
+				yield return new WaitForSeconds (atk3Time);
+				i -= .5f;
 			}
 		} else {
 			transform.localPosition = Atk3Pos2;
 			sp.enabled = true;
 			BC.enabled = true;
-			float i = -16;
+			float i = -23;
 			yield return new WaitForSeconds (1.0f);
-			while (i < 16) {
-				transform.position = transform.position + new Vector3 (.1f, 0, 0);
-				yield return new WaitForSeconds (.01f);
-				i += .1f;
+			while (i < 22) {
+				transform.position = transform.position + new Vector3 (.5f, 0, 0);
+				yield return new WaitForSeconds (atk3Time);
+				i += .5f;
 			}
 		}
 

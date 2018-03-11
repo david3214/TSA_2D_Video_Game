@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour {
 		if (Door != null && Input.GetKeyDown(KeyCode.W)) {
 			if (Door.GetComponent<DoorScript> ().isOpen) {
 				transform.position = Door.GetComponent<DoorScript>().connectedDoor.transform.position;
+				if (Door.GetComponent<DoorScript> ().connectedDoor.name == "BossDoor") {
+					Door.GetComponent<DoorScript> ().connectedDoor.GetComponentInChildren<DoorScript> ().BossDoorStuff ();
+				}
 			}
 		}
 
