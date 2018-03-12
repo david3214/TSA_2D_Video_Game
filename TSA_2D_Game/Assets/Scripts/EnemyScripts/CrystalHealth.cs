@@ -5,13 +5,11 @@ using UnityEngine;
 public class CrystalHealth : MonoBehaviour {
 
 	public static int bossHealth;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 }

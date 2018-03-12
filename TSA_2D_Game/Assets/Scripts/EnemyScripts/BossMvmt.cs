@@ -14,11 +14,13 @@ public class BossMvmt : MonoBehaviour {
 	public Vector3 Atk2Pos = new Vector3 (0, 10, -1);
 	public Vector3 Atk3Pos1 = new Vector3(22, -8, -1);
 	public Vector3 Atk3Pos2 = new Vector3(-23, -8, -1);
-	public float atk3Time = .009f;
+	public float atk3Time = .01f;
 	public SpriteRenderer sp;
 	public BoxCollider2D BC;
 
 	public float dmg = .5f;
+
+
 
 	void Start () {
 		sp = GetComponent<SpriteRenderer> ();
@@ -74,6 +76,8 @@ public class BossMvmt : MonoBehaviour {
 
 		BC.enabled = true;
 		sp.enabled = true;
+
+		GetComponentInParent<CreateLocalEnemies>().CreateEnemies();
 
 		StartCoroutine (Idle());
 
@@ -142,4 +146,5 @@ public class BossMvmt : MonoBehaviour {
 		idle = false;
 
 	}
+
 }
