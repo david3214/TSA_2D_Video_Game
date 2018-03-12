@@ -19,6 +19,7 @@ TagManager:
   - Enemy
   - Weapon
   - Boss
+  - EWall
   layers:
   - Default
   - TransparentFX

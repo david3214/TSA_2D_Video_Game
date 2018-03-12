@@ -15,8 +15,8 @@ public class DoorScript : MonoBehaviour {
 
 	public GameObject LockedMessage;
 
-	public Camera playerCam = null;
-	public Camera BossCam = null;
+	public GameObject playerCam = null;
+	public GameObject BossCam = null;
 	// Use this for initialization
 	void Awake () {
 
@@ -91,7 +91,7 @@ public class DoorScript : MonoBehaviour {
 		GetComponent<BossArenaStuff> ().playerEnter ();
 
 
-		playerCam.enabled = false;
-		BossCam.enabled = true;
+		playerCam.SetActive(false);
+		BossCam.SetActive(true);
 	}
 }
