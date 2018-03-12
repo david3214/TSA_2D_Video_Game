@@ -51,9 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CreateLocalEnemies.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\BossArenaStuff.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\BossMvmt.cs" />
+     <Compile Include="Assets\Scripts\EnemyScripts\CreateBossMinions.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\CrystalHealth.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\EnemyMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\FormEnemy.cs" />

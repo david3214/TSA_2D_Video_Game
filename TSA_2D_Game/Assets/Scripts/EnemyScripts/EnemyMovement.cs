@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour {
 		rb.velocity = new Vector2 (movementSpeed * direction, rb.velocity.y);
 	}
 	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "Wall" || other.tag == "EWall") {
+		if (other.tag == "Wall" || other.tag == "EWall" || other.tag == "Enemy") {
 			direction = direction * -1;
 			Flip ();
 		}
@@ -40,6 +40,15 @@ public class EnemyMovement : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+	/*void OnTriggerStay2D(Collider2D other){
+		if (other.tag == "Wall" || other.tag == "EWall" || other.tag == "Enemy") {
+			direction = direction * -1;
+			Flip ();
+		}
+		else if(other.tag == "Weapon"){
+			Destroy (this.gameObject);
+		}
+	}*/
 	void Flip(){
 		if (direction > 0) {
 			GetComponent<SpriteRenderer> ().flipX = false;

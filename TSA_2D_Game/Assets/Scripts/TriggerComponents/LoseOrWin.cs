@@ -8,4 +8,5 @@ public class LoseOrWin : MonoBehaviour {
 		LoseCanvas.SetActive (true);
 		this.gameObject.SetActive (false);
 	}
+
 }

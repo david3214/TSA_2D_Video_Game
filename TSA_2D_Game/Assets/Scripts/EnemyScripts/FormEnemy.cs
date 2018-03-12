@@ -15,5 +15,6 @@ public class FormEnemy : MonoBehaviour {
 			SR.sprite = spriteSheet [i];
 			yield return new WaitForSeconds (1f);
 		}
+		Destroy (this.gameObject);
 	}
 }

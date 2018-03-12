@@ -7,6 +7,8 @@ public class HealthNAttack : MonoBehaviour {
 	public int invincibilityTime;
 	public bool takingDmg;
 
+	public int killCount = 0;
+
 	public GameObject LeftBeam;
 	public GameObject RightBeam;//cause lazy
 
@@ -43,7 +45,8 @@ public class HealthNAttack : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Enemy" && this.gameObject.tag == "Player") {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
-			other.gameObject.SetActive (false);
+			killCount++;
+			Destroy(other.gameObject);
 		}
 		if (other.tag == "Boss") {
 			dealDmg(other.GetComponent<BossMvmt> ().dmg);
@@ -52,6 +55,7 @@ public class HealthNAttack : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Enemy") {
 			dealDmg(other.GetComponent<InteractionsWithPlayer> ().dmg);
+			killCount++;
 			Destroy (other.gameObject);
 		}
 		if (other.tag == "Boss") {

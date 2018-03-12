@@ -26,7 +26,7 @@ public class BossMvmt : MonoBehaviour {
 		sp = GetComponent<SpriteRenderer> ();
 		BC = GetComponent<BoxCollider2D> ();
 		attackNumber = 1;
-		StartCoroutine (Idle ());
+		StartCoroutine (Idle (2f));
 	}
 	
 	// Update is called once per frame
@@ -46,7 +46,6 @@ public class BossMvmt : MonoBehaviour {
 		CanAttack = false;
 		sp.enabled = false;
 		BC.enabled = false;
-		Debug.Log ("Attack 1");
 		yield return new WaitForSeconds(.5f);
 		if (Random.Range (1, 3) == 1) {
 			transform.localPosition = Atk1Pos1;
@@ -57,7 +56,7 @@ public class BossMvmt : MonoBehaviour {
 		BC.enabled = true;
 		sp.enabled = true;
 
-		yield return new WaitForSeconds (3.0f);
+		yield return new WaitForSeconds (6.0f);
 
 		attackNumber++;
 		CanAttack = true;
@@ -69,7 +68,6 @@ public class BossMvmt : MonoBehaviour {
 		CanAttack = false;
 		sp.enabled = false;
 		BC.enabled = false;
-		Debug.Log ("Attack 2");
 		yield return new WaitForSeconds(.5f);
 
 		transform.localPosition = Atk2Pos;
@@ -77,9 +75,11 @@ public class BossMvmt : MonoBehaviour {
 		BC.enabled = true;
 		sp.enabled = true;
 
-		GetComponentInParent<CreateLocalEnemies>().CreateEnemies();
+		GetComponentInParent<CreateBossMinions> ().CreateEnemies ();
 
-		StartCoroutine (Idle());
+		StartCoroutine (Idle(4f));
+
+		yield return new WaitForSeconds (12f);
 
 		attackNumber++;
 		CanAttack = true;
@@ -89,7 +89,6 @@ public class BossMvmt : MonoBehaviour {
 		CanAttack = false;
 		sp.enabled = false;
 		BC.enabled = false;
-		Debug.Log ("Attack 3");
 		yield return new WaitForSeconds(.5f);
 		if (Random.Range (1, 3) == 1) {
 			transform.localPosition = Atk3Pos1;// (16, 0, -1)
@@ -115,15 +114,15 @@ public class BossMvmt : MonoBehaviour {
 			}
 		}
 
-		yield return new WaitForSeconds (1.0f);
+		yield return new WaitForSeconds (3.0f);
 
 		attackNumber = 1;
 		CanAttack = true;
 	}
-	IEnumerator Idle(){
+	IEnumerator Idle(float num){
 		idle = true;
 
-		for (int j = 0; j < 2; j++) {
+		for (int j = 0; j < num; j++) {
 			float i = 0;
 			while (i < 1f) {
 				transform.position = transform.position + new Vector3 (0, .05f, 0);

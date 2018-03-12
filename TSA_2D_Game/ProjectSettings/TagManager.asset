@@ -20,6 +20,7 @@ TagManager:
   - Weapon
   - Boss
   - EWall
+  - BossHP
   layers:
   - Default
   - TransparentFX

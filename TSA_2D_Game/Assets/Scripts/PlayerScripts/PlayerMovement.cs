@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour {
 			isJumping = false;
 		}
 
+		if (rb.velocity.y < 5 && !HealthNAttack.attacking) {
+			rb.gravityScale = 2;
+		} else if(rb.velocity.y >= 0 && !HealthNAttack.attacking) {
+			rb.gravityScale = 1;
+		}
 		if (Door != null && Input.GetKeyDown(KeyCode.W)) {
 			if (Door.GetComponent<DoorScript> ().isOpen) {
 				transform.position = Door.GetComponent<DoorScript>().connectedDoor.transform.position;
