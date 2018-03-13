@@ -21,6 +21,8 @@ TagManager:
   - Boss
   - EWall
   - BossHP
+  - Ladder
+  - Spikes
   layers:
   - Default
   - TransparentFX

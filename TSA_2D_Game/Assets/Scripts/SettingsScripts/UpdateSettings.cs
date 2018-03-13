@@ -20,5 +20,6 @@ public class UpdateSettings : MonoBehaviour {
 	void Update () {
 		float VolumeLevel = VolumeSlider.value;
 		PlayerPrefs.SetFloat ("Volume", VolumeLevel);
+		PlayerPrefs.Save ();
 	}
 }

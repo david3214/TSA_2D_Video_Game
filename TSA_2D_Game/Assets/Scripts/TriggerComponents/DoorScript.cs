@@ -17,10 +17,11 @@ public class DoorScript : MonoBehaviour {
 
 	public GameObject playerCam = null;
 	public GameObject BossCam = null;
+	public GameObject AS;
 	// Use this for initialization
 	void Awake () {
 
-		if (name != "LowerDoor" && name != "UpperDoor" && name != "BossDoor") {
+		if (name != "LowerDoor" && name != "UpperDoor" && name != "BossDoor" && name != "LowerDiningDoor") {
 			
 			isOpen = false;
 			GetComponent<SpriteRenderer> ().sprite = sprite2;
@@ -93,5 +94,9 @@ public class DoorScript : MonoBehaviour {
 
 		playerCam.SetActive(false);
 		BossCam.SetActive(true);
+	}
+
+	public void DiningDoor(){
+		AS.GetComponent<VolumeScript> ().ToMain ();
 	}
 }

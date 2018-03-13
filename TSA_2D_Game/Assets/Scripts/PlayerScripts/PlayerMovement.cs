@@ -6,13 +6,14 @@ public class PlayerMovement : MonoBehaviour {
 	Rigidbody2D rb;
 	public float moveSpeed = 7.0f;
 	public float jumpSpeed = 10f;
-	public float jumpForce = 2.0f;
+	public float climbSpeed = 2.0f;
 	public float rbVelocity = 0;
 	public bool isJumping = false;
 	public bool grounded = false;
 	public bool canMoveLeft = true;
 	public bool canMoveRight = true;
 	public float groundRadius = 0.2f;
+	public bool OnLadder = false;
 
 	public bool canDoubleJump = true;
 	public bool hasDoubleJump = true;
@@ -48,7 +49,14 @@ public class PlayerMovement : MonoBehaviour {
 				if (Door.GetComponent<DoorScript> ().connectedDoor.name == "BossDoor") {
 					Door.GetComponent<DoorScript> ().connectedDoor.GetComponentInChildren<DoorScript> ().BossDoorStuff ();
 				}
+				else if (Door.GetComponent<DoorScript> ().connectedDoor.name == "DiningDoor") {
+					Door.GetComponent<DoorScript> ().connectedDoor.GetComponentInChildren<DoorScript> ().DiningDoor ();
+				}
 			}
+		}
+
+		if (OnLadder && Input.GetKey (KeyCode.W)) {
+			rb.velocity = new Vector2 (rb.velocity.x, climbSpeed);
 		}
 
 		if (!HealthNAttack.attacking)
@@ -102,7 +110,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (other.tag == "Door") {
 			Door = other.gameObject;
 		}
-
+		if (other.tag == "Ladder") {
+			grounded = true;
+			OnLadder = true;
+		}
 
 			
 
@@ -124,6 +135,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (other.tag == "Door") {
 			Door = null;
 		}
+		if (other.tag == "Ladder") {
+			grounded = false;
+			OnLadder = false;
+		}
 
 			
 	}
@@ -144,6 +159,10 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if (other.tag == "Door") {
 			Door = other.gameObject;
+		}
+		if (other.tag == "Ladder") {
+			grounded = true;
+			OnLadder = true;
 		}
 	}
 	void Flip(){

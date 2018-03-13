@@ -51,6 +51,9 @@ public class HealthNAttack : MonoBehaviour {
 		if (other.tag == "Boss") {
 			dealDmg(other.GetComponent<BossMvmt> ().dmg);
 		}
+		if (other.tag == "Spikes") {
+			dealDmg (.5f);
+		}
 	}
 	void OnTriggerStay2D(Collider2D other){
 		if (other.tag == "Enemy") {
@@ -61,6 +64,9 @@ public class HealthNAttack : MonoBehaviour {
 		if (other.tag == "Boss") {
 			dealDmg(other.GetComponent<BossMvmt> ().dmg);
 		}
+		if (other.tag == "Spikes") {
+			dealDmg (.5f);
+		}
 	}
 
 	void Attack(){
@@ -69,7 +75,6 @@ public class HealthNAttack : MonoBehaviour {
 			StartCoroutine (Attacking (attackTime));
 			GameObject Weapon = Instantiate (LeftBeam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
 			Weapon.transform.position = transform.position;
-			Weapon.GetComponentInChildren<SpriteRenderer> ().flipX = true;
 		} else {
 			StartCoroutine (Attacking (attackTime));
 			GameObject Weapon = Instantiate (RightBeam, this.gameObject.transform.position, Quaternion.identity) as GameObject;
